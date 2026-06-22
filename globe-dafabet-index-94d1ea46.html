@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dafabet · 从这里开始了解</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            background: #f8f5f0;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 0 1.5rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 2.2rem auto;
+            background: #fefcfa;
+            padding: 2.8rem 3.2rem 3.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            border-radius: 18px;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid #e7e2da;
+            margin-bottom: 2.4rem;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            color: #6b5e4f;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4f4a42;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a7825a;
+            border-bottom-color: #cbb295;
+        }
+
+        /* hero 区域 */
+        .hero {
+            margin-bottom: 2.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #3b352e;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #726a60;
+            max-width: 600px;
+            margin-top: 0.2rem;
+        }
+
+        .hero .quote-line {
+            margin-top: 1.6rem;
+            background: #f3efe9;
+            padding: 1.2rem 1.8rem;
+            border-left: 5px solid #cbb295;
+            border-radius: 0 8px 8px 0;
+            color: #4c453c;
+            font-style: normal;
+        }
+
+        .hero .quote-line p {
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .quote-line p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 介绍段 */
+        .intro-text {
+            margin: 2.2rem 0 2.6rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2.6rem 0 2.2rem;
+        }
+
+        .scene-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1.2rem 1.8rem;
+            background: #faf7f2;
+            padding: 1.5rem 1.8rem;
+            border-radius: 14px;
+            border: 1px solid #ede8e0;
+        }
+
+        .scene-num {
+            flex: 0 0 48px;
+            font-size: 1.8rem;
+            color: #cbb295;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .scene-content {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .scene-content h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4d4439;
+            margin-bottom: 0.5rem;
+        }
+
+        .scene-content p {
+            color: #5d554b;
+            font-size: 0.98rem;
+        }
+
+        /* 提示框 / 说明 */
+        .note-box {
+            background: #f3efe8;
+            padding: 1.4rem 1.8rem;
+            border-radius: 14px;
+            margin: 2.2rem 0 2rem;
+            border: 1px solid #e3dbd0;
+        }
+
+        .note-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .note-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-box strong {
+            color: #6b5a47;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.4rem 0 2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #3f3932;
+            border-bottom: 1px solid #e7e0d6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e2dbd0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #4f4438;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #635b50;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #8b775c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .faq-a a:hover {
+            color: #b08b65;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e7e2da;
+            font-size: 0.9rem;
+            color: #786e62;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .page {
+                padding: 1.8rem 1.2rem;
+                margin: 1rem auto;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .scene-item {
+                flex-direction: column;
+                padding: 1.2rem;
+            }
+            .scene-num {
+                flex: 0 0 auto;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .hero .quote-line {
+                padding: 0.9rem 1rem;
+            }
+            .faq-summary h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="nav-brand">dafabet · 了解</span>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">常见说明</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>一个稳定的了解起点</h1>
+        <p class="sub">在信息交错时，先找到清晰的说明和安静的入口。</p>
+        <div class="quote-line">
+            <p>「无论是初次了解，还是需要回顾一些基础信息，从一个结构清晰的页面开始，往往更有效率。」</p>
+            <p style="text-align:right; margin-top:0.5rem;">—— 关于页面引导的一点想法</p>
+        </div>
+    </div>
+
+    <!-- 介绍 -->
+    <div class="intro-text" id="intro">
+        <p>这个页面围绕 <a href="https://globe-dafabet.com" style="color:#8b775c; text-decoration:underline; text-underline-offset:3px;">dafabet</a> 做一个轻量的介绍整理。没有夸张的标语，也不做煽动性引导，只是把一些常见的、值得了解的内容，用一种更沉静的方式放在这里。</p>
+        <p>很多人第一次接触某个平台时，习惯先找“这是做什么的”“怎么用”“要注意什么”。这里尝试把这类信息拆成几个简单的模块，方便你按需阅读。如果某个部分让你产生了更多疑问，也完全正常 —— 每个问题都值得被认真对待。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+        <div class="scene-item">
+            <div class="scene-num">01</div>
+            <div class="scene-content">
+                <h3>想先了解整体情况</h3>
+                <p>不急于深入细节，而是希望先对 <a href="https://globe-dafabet.com" style="color:#8b775c; text-decoration:underline; text-underline-offset:3px;">dafabet</a> 有一个轮廓认知。这个页面就是为此准备的 —— 从导航到常见问题，每个部分都尽量保持简洁，避免信息过载。</p>
+            </div>
+        </div>
+
+        <div class="scene-item">
+            <div class="scene-num">02</div>
+            <div class="scene-content">
+                <h3>需要核对一些基础说明</h3>
+                <p>有时候我们只是需要确认某个说法、某个流程是不是自己理解的那样。页面后半段的常见说明部分，整理了几条反复被问到的内容，也许正好能帮上忙。当然，如果这里没有覆盖到，也建议去更完整的页面里找找更具体的描述。</p>
+            </div>
+        </div>
+
+        <div class="scene-item">
+            <div class="scene-num">03</div>
+            <div class="scene-content">
+                <h3>想找一个安静的入口慢慢看</h3>
+                <p>有些页面打开后信息铺天盖地，让人不知道从哪里看起。这个页面故意留出了呼吸感 —— 米白的背景、宽松的间距、低饱和的提示框，希望你在阅读时不感到催促。你可以随时通过链接跳转到 <a href="https://globe-dafabet.com" style="color:#8b775c; text-decoration:underline; text-underline-offset:3px;">dafabet</a> 的完整页面，那里包含更详尽的资料。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示框 -->
+    <div class="note-box">
+        <p><strong>一点提醒</strong>：本页内容仅为概括性介绍，不构成任何形式的保证或承诺。具体信息请以实际页面展示为准。如果你发现某些描述与你了解的情况有出入，可能是信息更新存在延迟，建议直接参考最新页面。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary" id="faq">
+        <h2>常见说明 · 摘要</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">这个页面和 dafabet 是什么关系？</div>
+            <div class="faq-a">这是一个独立整理的信息介绍页，旨在帮助感兴趣的朋友更轻松地了解 <a href="https://globe-dafabet.com">dafabet</a>。页面中的链接指向其完整站点，那里有更全面的内容。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">页面上的信息可靠吗？</div>
+            <div class="faq-a">这里的内容基于公开可查的信息和普遍认知整理而成，但任何平台都可能随时间调整细节。建议把它当作一个起点，重要的判断还是以实际页面为准。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">为什么没有直接列出所有功能？</div>
+            <div class="faq-a">因为“所有功能”是一个不断变化的概念。与其给出一个可能过时的清单，不如引导你去查阅实时更新的页面。这里更侧重场景和思路的梳理。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>— 温和地了解，比仓促地决定更有意义 —</p>
+    </div>
+
+</div>
+</body>
+</html>
